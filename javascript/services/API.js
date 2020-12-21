@@ -5,8 +5,8 @@ class API {
         .then(resp => resp.json())
         .then(accounts => {
             accounts.forEach(account => {
-                const{id, account_name, balance, account_type} = show
-                new Show(id, account_name, balance, account_type)
+                const{id, account_name, balance, account_type} = account
+                new Account(id, account_name, balance, account_type)
             })
         })
     }
