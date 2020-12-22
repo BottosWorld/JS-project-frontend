@@ -9,6 +9,48 @@
         <script type="text/javascript" src="javascript/index.js"></script>
     </head>
     <body>
+        <div id="form-container">
+            <form id="create-account">
+                <div class="new-account-form">
+                    <h5 id="form-title">Create Your New Account</h5>
+                    <div class="input-field" id="account_name">
+                        <p><input type="text" id="account_name" name="account_name" placeholder="Account Name.."></p>
+                    </div>
+                    <div class="input-field" id="balance">
+                        <p><input type="number" id="balance" name="balance" placeholder="Balance"></p>
+                    </div>
+                    <div class="input-field" id="account_type">
+                        <p><input type="text" id="account_type" name="account_type" placeholder="Checking, Savings, CC?"></p>
+                    </div>
+                </div>
+                <div class="input-field" id="submit-field">
+                    <p><input type="submit" id="account-submit" value="Create Account"></p>
+                </div>
+            </form>
+
+            <form id="create-transaction">
+                <div class="new-transaction-form">
+                    <h5 id="form-title">Create A New Transaction</h5>
+                    <div class="input-field" id="t_name">
+                        <p><input type="text" id="t_name" name="t_name" placeholder="Transaction Name.. Ex. Target"></p>
+                    </div>
+                    <div class="input-field" id="description">
+                        <p><input type="text-field" id="description" name="description" placeholder="Description of transaction.."></p>
+                    </div>
+                    <div class="input-field" id="value">
+                        <p><input type="number" id="value" name="value" placeholder="$"></p>
+                    </div>
+                    <div class="input-field" id="assign-t">
+                        <select name="account_name" id="account_name" class="account-transactions">
+                        </select>
+                    </div>
+                </div>
+                <div class="input-field" id="submit-field">
+                    <p><input type="submit" id="transaction-submit" value="Create Transaction"></p>
+                </div>
+            </form>
+        </div></br>
+
         <h1>Here are your Accounts, click to see more!</h1>
         <div id="account-list">
             <div id="transaction-list"></div>
