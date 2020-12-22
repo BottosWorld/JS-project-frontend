@@ -19,7 +19,7 @@ class Account {
         accountHolder.appendChild(accountContainer)
 
         accountContainer.addEventListener("click", e => {
-            if (e.target.className === "transaction-button") this.createTransactions(e)
+            if (e.target.className === "transaction-button") this.accountTransactions(e)
             if (e.target.className === "add-funds-button") this.addFunds(e)
         } )
 
@@ -34,10 +34,17 @@ class Account {
          `
     }
 
-    createTransactions(e){
+    accountTransactions(e){
         let id = e.target.dataset.id
         //add fetch request to retrieve transactions per account(account transaction history) scope out transactions charges and credits for assigned account
-
+        fetch("http://localhost:3000/accounts/" + `${id}` + "/transactions")
+        .then(resp => resp.json())
+        .then(console.log)
+        // .then(transactions => {
+        //     transactions.forEach(account => {
+        //         const{id, t_name, description, value, account_id} = transaction
+        //     })
+        // })
     }
 
     addFunds(e){
