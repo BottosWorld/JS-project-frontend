@@ -5,7 +5,6 @@ class Account {
         this.balance = balance
         this.account_type = account_type
         this.renderAccount()
-        //render instance above to page
     }
 
     //render instance method here to create div, append to page, and add classes/crud form to edit/eventlisteners
@@ -21,7 +20,7 @@ class Account {
 
         accountContainer.addEventListener("click", e => {
             if (e.target.className === "transaction-button") this.createTransactions(e)
-            if (e.target.className === "add-funds-button") this.createTransactions(e)
+            if (e.target.className === "add-funds-button") this.addFunds(e)
         } )
 
     }
@@ -29,7 +28,7 @@ class Account {
     accountHTML(){
         return `
         <h2 class="account-name">${this.account_name}</h2>
-        <h3 class="balance">$ ${this.balance}</h3>
+        <h3 class="balance">$ ${this.balance} <button type="button" class="add-funds-button" data-id=${this.id}>Add Funds</button></h3>
         <h4 class="account-type">${this.account_type}</h4> 
         <button type="button" class="transaction-button" data-id=${this.id}>See the transaction history for this account!</button>
          `
@@ -39,5 +38,9 @@ class Account {
         let id = e.target.dataset.id
         //add fetch request to retrieve transactions per account(account transaction history) scope out transactions charges and credits for assigned account
 
+    }
+
+    addFunds(e){
+        let id = e.target.dataset.value
     }
 }
