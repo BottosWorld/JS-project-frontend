@@ -2,11 +2,10 @@
 <html>
     <head>
         <title>Account Overview</title>
-        <!-- <link rel="stylesheet" href="css/index.css"> -->
+        <link rel="stylesheet" href="css/styles.css">
         <script type="text/javascript" src="javascript/services/API.js"></script>
-        <script type="text/javascript" src="javascript/models/transaction.js"></script>
         <script type="text/javascript" src="javascript/models/account.js"></script>
-
+        <script type="text/javascript" src="javascript/models/transaction.js"></script>
         <script type="text/javascript" src="javascript/index.js"></script>
     </head>
     <body>
@@ -18,7 +17,7 @@
                         <p><input type="text" id="account_name" name="account_name" placeholder="Account Name.."></p>
                     </div>
                     <div class="input-field" id="balance">
-                        <p><input type="number" id="balance" name="balance" placeholder="Balance"></p>
+                        <p><input type="decimal" id="balance" name="balance" placeholder="Balance"></p>
                     </div>
                     <div class="input-field" id="account_type">
                         <p><input type="text" id="account_type" name="account_type" placeholder="Checking, Savings, CC?"></p>
@@ -38,13 +37,18 @@
                         <p><input type="text" id="t_name" name="t_name" placeholder="Transaction Name.. Ex. Target"></p>
                     </div>
                     <div class="input-field" id="description">
-                        <p><input type="text-field" id="description" name="description" placeholder="Description of transaction.."></p>
+                        <p><input type="textarea" id="description" name="description" placeholder="Description of transaction.."></p>
                     </div>
-                    <div class="input-field" id="value">
-                        <p><input type="number" id="value" name="value" placeholder="$"></p>
+                    <div class="input-field" id="t_value">
+                        <p><input type="decimal" id="t_value" name="t_value" placeholder="$"></p>
                     </div>
-                    <div class="input-field" id="assign-t">
-                        <select name="account-name" id="account-name" class="account-name">
+                    <div class="input-field" id="account_id">
+                        <select name="account_id" id="account_id" class="account-name">
+                            <option value="none"selected>None</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
                         </select>
                     </div>
                 </div>

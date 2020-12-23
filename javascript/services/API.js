@@ -16,15 +16,14 @@ class API {
         .then(resp => resp.json())
         .then(transactions => {
             transactions.forEach(transaction => {
-                const{id, t_name, description, value, account_id} = transaction
-                new Transaction(id, t_name, description, value, account_id)
+                const{id, t_name, description, t_value, account_id} = transaction
+                new Transaction(id, t_name, description, t_value, account_id)
             })
         })
     }
 
     static addAccount(e){
         e.preventDefault()
-        // capture our form data
         let data = {
             'id': e.target.id.value,
             'account_name': e.target.account_name.value,
@@ -46,16 +45,27 @@ class API {
         })
     }
 
-    // static addTransaction(e){
-    //     e.preventDefault()
-    //     // capture our form data
-    //     let data = {
-    //         'id': e.target.id.value,
-    //         't_name': e.target.t_name.value,
-    //         'description': e.target.description.value,
-    //         'value': e.target.value.value,
-    //         'account_id': e.target.account_id.value
-    //     }
-    //     return data;
-    // }
+    static addTransaction(e){
+        e.preventDefault()
+        let data = {
+            'id': e.target.id.value,
+            't_name': e.target.t_name.value,
+            'description': e.target.description.value,
+            't_value': e.target.t_value.value,
+            'account_id': e.target.account_id.value
+        }
+        fetch('http://localhost:3000/transactions', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(resp => resp.json())
+        .then(transaction => {
+            const { id, t_name, description, t_value, account_id } = transaction
+            new Transaction(id, t_name, description, t_value, account_id)
+            document.getElementById('create-transaction').reset()
+        })
+    }
 }

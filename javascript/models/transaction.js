@@ -1,9 +1,9 @@
 class Transaction {
-    constructor(id, t_name, description, value, account_id){
+    constructor(id, t_name, description, t_value, account_id){
         this.id = id
         this.t_name = t_name
         this.description = description
-        this.value = value
+        this.t_value = t_value
         this.account_id = account_id
         this.renderTransaction()
     }
@@ -26,9 +26,9 @@ class Transaction {
     transactionHTML(){
         return `
         <h2 class="t-name">${this.t_name}</h2>
-        <h3 class="value">$ ${this.value}</h3>
+        <h3 class="t_value">$ ${this.t_value}</h3>
         <p class="description">${this.description}</p>
-        <p class="assign-account">${this.account_id}</p>
+        <p class="assign-t">${this.account_id}</p>
         <button type="button" class="edit-transaction-button" data-id=${this.id}>Edit</button>
         <button type="button" class="delete-transaction-button" data-id=${this.id}>Delete</button>
          `

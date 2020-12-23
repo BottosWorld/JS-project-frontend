@@ -19,14 +19,16 @@ class Account {
         // .then(console.log)
         .then(transactions => {
             transactions.forEach(transaction => {
-                const{id, t_name, description, value, account_id} = transaction
-                new Transaction(id, t_name, description, value, account_id)
-                const accountTransContainer = document.createElement('div')
-                accountTransContainer.dataset.id = Transaction.account_id
-                accountTransContainer.id = Transaction.account_id
-                accountTransContainer.classList.add = 'account-history'
-                accountTransContainer.innerHTML += Transaction.prototype.transactionHTML()
-                // accountContainer.appendChild(accountTransContainer)
+                const{id, t_name, description, t_value, account_id} = transaction
+                new Transaction(id, t_name, description, t_value, account_id)
+                // const accountTransHolder = document.getElementById('transaction-list')
+                // const accountTransContainer = document.createElement('div')
+                // accountTransContainer.dataset.id = Transaction[0]
+                // accountTransContainer.id = Transaction[0]
+                // accountTransContainer.classList.add = 'account-history'
+                // accountTransContainer.innerHTML += Transaction.prototype.transactionHTML()
+                // accountTransHolder.appendChild(accountTransContainer)
+                // // accountContainer.appendChild(accountTransHolder)
                 // Transaction.prototype.transactionHTML
             })
         })
@@ -45,22 +47,28 @@ class Account {
     
         accountHolder.appendChild(accountContainer)
 
-
+        // const accountTransHolder = document.getElementById('transaction-list', `${this.id}`)
         // const accountTransContainer = document.createElement('div')
-        // accountTransContainer.dataset.id = Transaction.account_id
-        // accountTransContainer.id = Transaction.account_id
+        // accountTransContainer.dataset.id = this.id
+        // accountTransContainer.id = this.id
         // accountTransContainer.classList.add = 'account-history'
         // accountTransContainer.innerHTML += Transaction.prototype.transactionHTML()
-        // accountContainer.appendChild(accountTransContainer)
+        // // accountContainer.appendChild(accountTransContainer)
+        // accountTransHolder.appendChild(accountTransContainer)
+        // accountContainer.appendChild(accountTransHolder)
 
         accountContainer.addEventListener("click", e => {
             if (e.target.className === "transaction-button") this.accountTransactions(e)
-                const accountTransContainer = document.createElement('div')
-                accountTransContainer.dataset.id = Transaction.account_id
-                accountTransContainer.id = Transaction.account_id
-                accountTransContainer.classList.add = 'account-history'
-                accountTransContainer.innerHTML += Transaction.prototype.transactionHTML()
-                accountContainer.appendChild(accountTransContainer)
+                // const accountTransHolder = document.getElementById('transaction-list', `${this.id}`)
+                // const accountTransContainer = document.createElement('div')
+                // accountTransContainer.dataset.id = this.id
+                // accountTransContainer.id = this.id
+                // accountTransContainer.classList.add = 'account-history'
+                // accountTransContainer.innerHTML += Transaction.prototype.transactionHTML()
+                // accountTransHolder.appendChild(accountTransContainer)
+                // accountContainer.appendChild(accountTransHolder)
+                // debugger
+
             if (e.target.className === "add-funds-button") this.addFunds(e)
         } )
 
