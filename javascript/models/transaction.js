@@ -35,10 +35,36 @@ class Transaction {
     }
 
     editTransaction(e){
+        let id = e.target.dataset.id
+        fetch("http://localhost:3000/accounts/" + `${this.account_id}` + "/transactions/" + `${id}`, {
+            method: 'PATCH',
+            
+            headers: {
+                "Accept": "application/json",
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                t_name: `${this.t_name}`,
+                t_value: `${this.t_value}`,
+                description: `${this.description}`,
+                account_id: `${this.account_id}`
+            })
+        })
+        .then(resp => resp.json())
+        .then(json => console.log(json))
+        // .then(transaction => {
+            
+        // })
 
     }
 
     deleteTransaction(e){
-
+        let id = e.target.dataset.id
+        fetch("http://localhost:3000/transactions/" + `${id}`, {
+            method: 'DELETE'
+        })
+        .then(() => {
+            document.getElementById('transaction-list').removeChild(document.getElementById(id))
+          })
     }
 }

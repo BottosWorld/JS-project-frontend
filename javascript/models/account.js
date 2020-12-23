@@ -87,7 +87,19 @@ class Account {
 
     addFunds(e){
         let id = e.target.dataset.id
-        fetch("http://localhost:3000/accounts/" + `${id}`)
+        fetch("http://localhost:3000/accounts/" + `${id}`, {
+            method: 'PATCH',
+            body: JSON.stringify({
+                balance: `${this.balance}`
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+                }
+        })
         .then(resp => resp.json())
+        .then(json => console.log(json))
+        // .then(account => {
+
+        // })
     }
 }
