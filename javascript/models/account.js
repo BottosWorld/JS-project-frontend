@@ -56,7 +56,8 @@ class Account {
 
         accountContainer.addEventListener("click", e => {
             if (e.target.className === "transaction-button") this.accountTransactions(e)
-            if (e.target.className === "add-funds-button") this.addFunds(e)
+            // if (e.target.className === "add-funds-button") this.addFunds(e)
+            if (e.target.className === "delete-account-button") this.deleteAccount(e)
         } )
 
     }
@@ -64,10 +65,12 @@ class Account {
     accountHTML(){
         return `
         <h2 class="account-name">${this.account_name}, ID #${this.id}</h2>
-        <h3 class="balance">$ ${this.balance} <button type="button" class="add-funds-button" data-id=${this.id}>Add Funds</button></h3>
+        <h3 class="balance">$ ${this.balance} 
         <h4 class="account-type">${this.account_type}</h4> 
-        <button type="button" class="transaction-button" data-id=${this.id}>See the transaction history for this account!</button>
+        <button type="button" class="delete-account-button" data-id=${this.id}>Delete Me!</button>
          `
+        //  <button type="button" class="add-funds-button" data-id=${this.id}>Add Funds</button></h3>
+        // <button type="button" class="transaction-button" data-id=${this.id}>See the transaction history for this account!</button>
     }
 
 
@@ -89,5 +92,15 @@ class Account {
         // .then(account => {
 
         // })
+    }
+
+    deleteAccount(e){
+        let id = e.target.dataset.id
+        fetch("http://localhost:3000/accounts/" + `${id}`, {
+            method: 'DELETE'
+        })
+        .then(() => {
+            document.getElementById('account-list').removeChild(document.getElementById(id))
+          })
     }
 }

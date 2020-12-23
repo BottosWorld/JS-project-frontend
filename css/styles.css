@@ -1,4 +1,5 @@
 body {
+
     background-color: powderblue;
   }
   h1 {
@@ -37,9 +38,9 @@ body {
   }
 
   textarea {
-    width: 15%;
+    width: 25%;
     height: 150px;
-    padding: 12px 20px;
+    padding: 12px 48px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -60,3 +61,13 @@ body {
     padding: 50px;
     margin: 20px;
   }
+
+  .new-account-form {
+
+        width: 250px;
+        border: 15px solid darkturquoise;
+        padding: 25px;
+        margin: 20px;
+      
+  }
+

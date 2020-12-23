@@ -30,9 +30,10 @@ class Transaction {
         <h3 class="t_value">$ ${this.t_value}</h3>
         <p class="description">${this.description}</p>
         <p class="assign-t">${this.account_id}</p>
-        <button type="button" class="edit-transaction-button" data-id=${this.id}>Edit</button>
+
         <button type="button" class="delete-transaction-button" data-id=${this.id}>Delete</button>
          `
+        // <button type="button" class="edit-transaction-button" data-id=${this.id}>Edit</button>
     }
 
     editTransaction(e){
