@@ -1,4 +1,5 @@
 class Account {
+    static all = []
 
     constructor(id, account_name, balance, account_type){
         this.id = id
@@ -6,6 +7,8 @@ class Account {
         this.balance = balance
         this.account_type = account_type
         this.renderAccount()
+        Account.all << this
+        // this.constructor.all << this
     }
 
     //render instance method here to create div, append to page, and add classes/crud form to edit/eventlisteners
@@ -55,7 +58,7 @@ class Account {
         // accountContainer.appendChild(accountTransHolder)
 
         accountContainer.addEventListener("click", e => {
-            if (e.target.className === "transaction-button") this.accountTransactions(e)
+            // if (e.target.className === "transaction-button") this.accountTransactions(e)
             // if (e.target.className === "add-funds-button") this.addFunds(e)
             if (e.target.className === "delete-account-button") this.deleteAccount(e)
         } )
@@ -96,6 +99,7 @@ class Account {
 
     deleteAccount(e){
         let id = e.target.dataset.id
+        // this.id
         fetch("http://localhost:3000/accounts/" + `${id}`, {
             method: 'DELETE'
         })

@@ -7,4 +7,12 @@ document.addEventListener("DOMContentLoaded", function(){
     // If we have any event listeners that need to get appended to the page when it loads, they should get appendeded here too.
     document.getElementById('create-account').addEventListener('submit', API.addAccount)
     document.getElementById('create-transaction').addEventListener('submit', API.addTransaction)
+    document.getElementById('change-header').addEventListener('click', changeHeader)
+
+
+
+    function changeHeader(){
+        document.querySelector('h1').innerText = "San deamos Football Rules"    
+    }
+
 })
