@@ -13,13 +13,13 @@ class Transaction {
         const transactionContainer = document.createElement('div')
         transactionContainer.dataset.id = this.id
         transactionContainer.id = this.id
-        transactionContainer.classList.add = 'account-history'
+        transactionContainer.classList.add = 'all-transactions'
         transactionContainer.innerHTML += this.transactionHTML()
         transactionHolder.appendChild(transactionContainer)
 
         transactionContainer.addEventListener("click", e => {
-            if (e.target.className === "edit-transaction-button") this.createTransactions(e)
-            if (e.target.className === "delete-transaction-button") this.createTransactions(e)
+            if (e.target.className === "edit-transaction-button") this.editTransaction(e)
+            if (e.target.className === "delete-transaction-button") this.deleteTransaction(e)
         } )
     }
 
@@ -27,7 +27,8 @@ class Transaction {
         return `
         <h2 class="t-name">${this.t_name}</h2>
         <h3 class="value">$ ${this.value}</h3>
-        <p class="description">${this.description}</p> 
+        <p class="description">${this.description}</p>
+        <p class="assign-account">${this.account_id}</p>
         <button type="button" class="edit-transaction-button" data-id=${this.id}>Edit</button>
         <button type="button" class="delete-transaction-button" data-id=${this.id}>Delete</button>
          `
@@ -38,6 +39,6 @@ class Transaction {
     }
 
     deleteTransaction(e){
-        
+
     }
 }

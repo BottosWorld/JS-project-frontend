@@ -6,6 +6,7 @@
         <script type="text/javascript" src="javascript/services/API.js"></script>
         <script type="text/javascript" src="javascript/models/transaction.js"></script>
         <script type="text/javascript" src="javascript/models/account.js"></script>
+
         <script type="text/javascript" src="javascript/index.js"></script>
     </head>
     <body>
@@ -26,7 +27,9 @@
                 <div class="input-field" id="submit-field">
                     <p><input type="submit" id="account-submit" value="Create Account"></p>
                 </div>
+
             </form>
+
 
             <form id="create-transaction">
                 <div class="new-transaction-form">
@@ -41,7 +44,7 @@
                         <p><input type="number" id="value" name="value" placeholder="$"></p>
                     </div>
                     <div class="input-field" id="assign-t">
-                        <select name="account_name" id="account_name" class="account-transactions">
+                        <select name="account-name" id="account-name" class="account-name">
                         </select>
                     </div>
                 </div>
@@ -52,9 +55,10 @@
         </div></br>
 
         <h1>Here are your Accounts!</h1>
-        <div id="account-list">
-            <div id="transaction-list"></div>
-        </div>
+        <div id="account-list"></div></br>
+        <h1>Here are all the transactions</h1>
+        <div id="transaction-list"></div>
+        
         
     </body>
 </html>
