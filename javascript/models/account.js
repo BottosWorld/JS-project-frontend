@@ -35,16 +35,13 @@ class Account {
     }
 
     renderAccount(){
-
         const accountHolder = document.getElementById("account-list")
-
         const accountContainer = document.createElement('div')
         
         accountContainer.dataset.id = this.id
         accountContainer.id = this.id
         accountContainer.classList.add = 'account-data'
         accountContainer.innerHTML += this.accountHTML()
-    
         accountHolder.appendChild(accountContainer)
 
         // const accountTransHolder = document.getElementById('transaction-list', `${this.id}`)
@@ -59,16 +56,6 @@ class Account {
 
         accountContainer.addEventListener("click", e => {
             if (e.target.className === "transaction-button") this.accountTransactions(e)
-                // const accountTransHolder = document.getElementById('transaction-list', `${this.id}`)
-                // const accountTransContainer = document.createElement('div')
-                // accountTransContainer.dataset.id = this.id
-                // accountTransContainer.id = this.id
-                // accountTransContainer.classList.add = 'account-history'
-                // accountTransContainer.innerHTML += Transaction.prototype.transactionHTML()
-                // accountTransHolder.appendChild(accountTransContainer)
-                // accountContainer.appendChild(accountTransHolder)
-                // debugger
-
             if (e.target.className === "add-funds-button") this.addFunds(e)
         } )
 
@@ -89,12 +76,13 @@ class Account {
         let id = e.target.dataset.id
         fetch("http://localhost:3000/accounts/" + `${id}`, {
             method: 'PATCH',
+            headers: {
+                "Accept": "application/json",
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
                 balance: `${this.balance}`
             }),
-            headers: {
-                'Content-Type': 'application/json'
-                }
         })
         .then(resp => resp.json())
         .then(json => console.log(json))

@@ -33,23 +33,23 @@
             <form id="create-transaction">
                 <div class="new-transaction-form">
                     <h5 id="form-title">Create A New Transaction</h5>
-                    <div class="input-field" id="t_name">
+                    <div class="input-field">
                         <p><input type="text" id="t_name" name="t_name" placeholder="Transaction Name.. Ex. Target"></p>
                     </div>
-                    <div class="input-field" id="description">
-                        <p><input type="textarea" id="description" name="description" placeholder="Description of transaction.."></p>
+                    <div class="input-field">
+                        <p><textarea id="description" name="description" placeholder="Description of transaction.."></textarea></p>
                     </div>
-                    <div class="input-field" id="t_value">
+                    <div class="input-field">
                         <p><input type="decimal" id="t_value" name="t_value" placeholder="$"></p>
                     </div>
                     <div class="input-field" id="account_id">
-                        <select name="account_id" id="account_id" class="account-name">
+                        <p><select name="account_id" id="account_id" class="account-name">
                             <option value="none"selected>None</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                        </select>
+                        </select></p>
                     </div>
                 </div>
                 <div class="input-field" id="submit-field">
@@ -59,9 +59,9 @@
         </div></br>
 
         <h1>Here are your Accounts!</h1>
-        <div id="account-list"></div></br>
+        <div id="account-list" class="account-list"></div></br>
         <h1>Here are all the transactions</h1>
-        <div id="transaction-list"></div>
+        <div id="transaction-list" class="transaction-list"></div>
         
         
     </body>
