@@ -7,6 +7,7 @@ class API {
             accounts.forEach(account => {
                 const{id, account_name, balance, account_type} = account
                 new Account(id, account_name, balance, account_type)
+                Account.all.push(account)
             })
         })
     }
@@ -41,6 +42,7 @@ class API {
         .then(account => {
             const { id, account_name, balance, account_type } = account
             new Account(id, account_name, balance, account_type)
+            Account.all.push(account)
             document.getElementById('create-account').reset()
         })
     }

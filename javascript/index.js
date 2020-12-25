@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function(){
     document.getElementById('create-account').addEventListener('submit', API.addAccount)
     document.getElementById('create-transaction').addEventListener('submit', API.addTransaction)
     document.getElementById('change-header').addEventListener('click', changeHeader)
+    // document.getElementById('change-header').addEventListener('click', accountOptions)
 
 
 
@@ -15,4 +16,10 @@ document.addEventListener("DOMContentLoaded", function(){
         document.querySelector('h1').innerText = "San deamos Football Rules"    
     }
 
+    // function accountOptions(){
+    //     document.querySelector('select', 'account_options').innerText
+
+    // }
+
+    // document.querySelector('select', 'account_id').options = Account.all.account_name
 })
