@@ -19,7 +19,7 @@ class Transaction {
         transactionHolder.appendChild(transactionContainer)
 
         transactionContainer.addEventListener("click", e => {
-            if (e.target.className === "edit-transaction-button") this.editTransaction(e)
+            // if (e.target.className === "edit-transaction-button") this.editTransaction(e)
             if (e.target.className === "delete-transaction-button") this.deleteTransaction(e)
         } )
     }
@@ -36,41 +36,41 @@ class Transaction {
         // <button type="button" class="edit-transaction-button" data-id=${this.id}>Edit</button>
     }
 
-    editTransaction(e){
-        let id = e.target.dataset.id
-        fetch("http://localhost:3000/accounts/" + `${this.account_id}` + "/transactions/" + `${this.id}`, {
-            method: 'PATCH',
-            headers: {
-                "Accept": "application/json",
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                t_name: `${this.t_name}`,
-                t_value: `${this.t_value}`,
-                description: `${this.description}`,
-                account_id: `${this.account_id}`
-            })
-        })
-        .then(resp => resp.json())
-        // .then(json => console.log(json))
-        // debugger
-        .then(transaction => {
-            const {id, t_name, description, t_value, account_id } = transaction
-            new Transaction(id, t_name, description, t_value, account_id)
-            const transactionName = document.querySelector('input#t_name')
-            const transactionDescription = document.querySelector('textarea#description')
-            const transactionValue = document.querySelector('input#t_value')
-            const transactionAccount = document.querySelector('select#account_id')
-            transactionName.innerText = `${this.t_name}`
-            transactionDescription.innerText = `${this.description}`
-            transactionValue.innerText = `${this.t_value}`
-            transactionAccount.innerText = `${this.account_id}`
+    // editTransaction(e){
+    //     let id = e.target.dataset.id
+    //     fetch("http://localhost:3000/accounts/" + `${this.account_id}` + "/transactions/" + `${this.id}`, {
+    //         method: 'PATCH',
+    //         headers: {
+    //             "Accept": "application/json",
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({
+    //             t_name: `${this.t_name}`,
+    //             t_value: `${this.t_value}`,
+    //             description: `${this.description}`,
+    //             account_id: `${this.account_id}`
+    //         })
+    //     })
+    //     .then(resp => resp.json())
+    //     // .then(json => console.log(json))
+    //     // debugger
+    //     .then(transaction => {
+    //         const {id, t_name, description, t_value, account_id } = transaction
+    //         new Transaction(id, t_name, description, t_value, account_id)
+    //         const transactionName = document.querySelector('input#t_name')
+    //         const transactionDescription = document.querySelector('textarea#description')
+    //         const transactionValue = document.querySelector('input#t_value')
+    //         const transactionAccount = document.querySelector('select#account_id')
+    //         transactionName.innerText = `${this.t_name}`
+    //         transactionDescription.innerText = `${this.description}`
+    //         transactionValue.innerText = `${this.t_value}`
+    //         transactionAccount.innerText = `${this.account_id}`
 
-            debugger
+    //         debugger
             
-        })
+    //     })
 
-    }
+    // }
 
     deleteTransaction(e){
         let id = e.target.dataset.id

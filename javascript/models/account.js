@@ -78,24 +78,24 @@ class Account {
 
 
 
-    addFunds(e){
-        let id = e.target.dataset.id
-        fetch("http://localhost:3000/accounts/" + `${id}`, {
-            method: 'PATCH',
-            headers: {
-                "Accept": "application/json",
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                balance: `${this.balance}`
-            }),
-        })
-        .then(resp => resp.json())
-        .then(json => console.log(json))
-        // .then(account => {
+    // addFunds(e){
+    //     let id = e.target.dataset.id
+    //     fetch("http://localhost:3000/accounts/" + `${id}`, {
+    //         method: 'PATCH',
+    //         headers: {
+    //             "Accept": "application/json",
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({
+    //             balance: `${this.balance}`
+    //         }),
+    //     })
+    //     .then(resp => resp.json())
+    //     .then(json => console.log(json))
+    //     // .then(account => {
 
-        // })
-    }
+    //     // })
+    // }
 
     deleteAccount(e){
         let id = e.target.dataset.id

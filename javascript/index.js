@@ -8,14 +8,23 @@ document.addEventListener("DOMContentLoaded", function(){
     document.getElementById('create-account').addEventListener('submit', API.addAccount)
     document.getElementById('create-transaction').addEventListener('submit', API.addTransaction)
     document.getElementById('change-header').addEventListener('click', changeHeader)
-    // document.getElementById('change-header').addEventListener('click', accountOptions)
-
-
+    document.getElementById('account_id').addEventListener('click', populateSelectOptions)
 
     function changeHeader(){
         document.querySelector('h1').innerText = "San deamos Football Rules"    
     }
 
+    function populateSelectOptions(){
+        for (i = 0; i < Account.all.length; i++) { 
+            const selectAccount = document.querySelector('#account_id')
+            const createAcctNameEle = document.createElement("OPTION");
+            const acctNameText = document.createTextNode(Account.all[i].account_name);
+            // createAcctNameEle.dataset.id = Account.all[i].id
+            createAcctNameEle.value = Account.all[i].id
+            createAcctNameEle.appendChild(acctNameText);
+            selectAccount.insertBefore(createAcctNameEle, selectAccount.lastChild)
+        }
+    }
     // function accountOptions(){
     //     document.querySelector('select', 'account_options').innerText
 
