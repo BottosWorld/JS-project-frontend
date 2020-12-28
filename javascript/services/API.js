@@ -10,6 +10,24 @@ class API {
                 Account.all.push(account)
             })
         })
+        .then( () => {
+            
+            let i = 0
+                for (; i < Account.all.length; i++) { 
+                    
+                    const selectAccount = document.querySelector('#account_id');
+                    const createAcctNameEle = document.createElement("OPTION");
+                    const acctNameText = document.createTextNode(Account.all[i].account_name);
+        
+                    createAcctNameEle.id = Account.all[i].id;
+                    createAcctNameEle.value = Account.all[i].id;
+                    createAcctNameEle.appendChild(acctNameText);
+                    selectAccount.insertBefore(createAcctNameEle, selectAccount.lastChild)
+        
+                }
+            
+        })
+
     }
 
     static addTransactions(){
@@ -44,6 +62,27 @@ class API {
             new Account(id, account_name, balance, account_type)
             Account.all.push(account)
             document.getElementById('create-account').reset()
+        })
+        .then( () => {
+            const acctOptions = document.getElementById('account_id').options;
+            acctOptions.length = 1
+        })
+        .then( () => {
+            
+            let i = 0
+                for (; i < Account.all.length; i++) { 
+                    
+                    const selectAccount = document.querySelector('#account_id');
+                    const createAcctNameEle = document.createElement("OPTION");
+                    const acctNameText = document.createTextNode(Account.all[i].account_name);
+        
+                    createAcctNameEle.id = Account.all[i].id;
+                    createAcctNameEle.value = Account.all[i].id;
+                    createAcctNameEle.appendChild(acctNameText);
+                    selectAccount.insertBefore(createAcctNameEle, selectAccount.lastChild)
+        
+                }
+            
         })
     }
 
