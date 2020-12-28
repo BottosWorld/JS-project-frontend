@@ -39,3 +39,55 @@ new html code, still need to get js code to dynamically add account options
         <!-- <div class="input-field">
             <p><select name="account_options" id="account_options" class="account_options">
         -->
+
+The following functions and event listeners were used in index.js to dynamically add options to my select box, but with the click event listener I could not figure out how to limit populateSelectOptions to run just once... resulting in duplicate options.. until testing different events and debugger showed me my functions needed to be placed in the API file to run asynchronously..
+
+
+    // document.getElementById('account_id').addEventListener('click', populateSelectOptions)
+    // document.getElementById('create-transaction').addEventListener('submit', removeSelectOptions)
+
+    // function populateSelectOptions(){
+
+    //     for (i = 0; i < Account.all.length; i++) { 
+    //         const selectAccount = document.querySelector('#account_id');
+    //         const createAcctNameEle = document.createElement("OPTION");
+    //         const acctNameText = document.createTextNode(Account.all[i].account_name);
+
+    //         createAcctNameEle.id = Account.all[i].id;
+    //         createAcctNameEle.value = Account.all[i].id;
+    //         createAcctNameEle.appendChild(acctNameText);
+    //         selectAccount.insertBefore(createAcctNameEle, selectAccount.lastChild)
+
+    //     }
+
+    // }
+
+    // function removeSelectOptions(){
+    //     const acctOptions = document.getElementById('account_id').options;
+    //     acctOptions.length = 1
+    // }
+
+Messed around with the code below in my API.js file after using debugger to find out the functions above were out of sync with my API.. meaning my functions had to move into my api:addaccounts and createaccounts static functions:
+            // debugger
+            // function populateSelectOptions() {
+
+                // debugger
+                // let i
+                // for (; i < Account.all.length; i++) { 
+                    // let selectAccount = document.querySelector('#account_id');
+                    // let createAcctNameEle = document.createElement("OPTION");
+                    // let acctNameText = document.createTextNode(Account.all[i].account_name);
+
+                    // document.createElement("OPTION").id += Account.all[i].account_name;
+                    // document.createElement("OPTION").value = Account.all[i].id
+                    // document.createElement("OPTION").appendChild(document.createTextNode(Account.all[i].account_name));
+                    // document.querySelector('#account_id').insertBefore(document.createElement("OPTION"), document.querySelector('#account_id').lastChild);
+
+                    // createAcctNameEle.id = Account.all[i].id;
+                    // createAcctNameEle.value = Account.all[i].id;
+                    // createAcctNameEle.appendChild(acctNameText);
+                    // selectAccount.insertBefore(createAcctNameEle, selectAccount.lastChild)
+                    // debugger
+        //         }
+            
+        // })
